@@ -17,7 +17,7 @@ export default function AddProduct({fetchData}) {
 	const addProduct = (e) => {
 		e.preventDefault();
 
-		// fetch('https://passion-inside.herokuapp.com/products/create', {
+		// fetch('https://herokuapp.com/products/create', {
 		fetch('http://localhost:8000/products/create', {
 			method: 'POST',
 			headers: {

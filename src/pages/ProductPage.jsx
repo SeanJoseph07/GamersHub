@@ -10,7 +10,7 @@ export default function ProductPage() {
 	const [ allProducts, setAllProducts ] = useState([])
 
 	const fetchData = () => {
-		// fetch('https://passion-inside.herokuapp.com/products/all')
+		// fetch('https://herokuapp.com/products/all')
 		fetch('http://localhost:8000/products/all')
 		.then(res => res.json())
 		.then(data => {

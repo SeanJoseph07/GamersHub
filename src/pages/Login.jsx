@@ -110,7 +110,6 @@
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				if(data.accessToken !== undefined){
 					localStorage.setItem('accessToken', data.accessToken)
 					setUser({
@@ -129,8 +128,6 @@
 					})
 					.then(res => res.json())
 					.then(data => {
-						console.log(data)
-
 						if(data.isAdmin === true){
 							localStorage.setItem('isAdmin', data.isAdmin)
 							setUser({

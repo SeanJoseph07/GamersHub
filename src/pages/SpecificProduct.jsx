@@ -7,12 +7,13 @@
 
 //Function
 	export default function SpecificProduct(){
+		console.log(`*****************SP*************`)
 		const { productId } = useParams();
 		const [ name, setName ] = useState('');
 		const [ description, setDescription ] = useState('');
 		const [ price, setPrice ] = useState(0);
 		useEffect(() => {
-			// fetch(`https://passion-inside.herokuapp.com/products/${ productId }`)
+			// fetch(`https://herokuapp.com/products/${ productId }`)
 			fetch(`http://localhost:8000/carts/products/${ productId }`)
 			.then(res => res.json())
 			.then(data => {
@@ -33,9 +34,9 @@
 		const { user } = useContext(UserContext);
 
 		//checkout function
-		const createOrder = (productId) => {
-			// fetch('https://passion-inside.herokuapp.com/users/create-order', {
-			fetch('http://localhost:8000/users/create-order', {
+		const checkout = (productId) => {
+			// fetch('https://herokuapp.com/users/checkout', {
+			fetch('http://localhost:8000/users/checkout', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -77,7 +78,7 @@
 					</Card.Body>
 					<Card.Footer>
 					{user.accessToken !== null ?
-						<Button variant='danger' onClick={() => createOrder(productId)}>Buy</Button>
+						<Button variant='danger' onClick={() => checkout(productId)}>Buy</Button>
 						:
 						<Button variant='danger' as={Link} to="/login">Login to make a purchase</Button>
 					}

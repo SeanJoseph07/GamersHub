@@ -12,7 +12,7 @@ export default function EditProduct({product, fetchData}){
 		const [price, setPrice] = useState(0);
 
 		const openEdit = (productId) => {
-			// fetch(`https://passion-inside.herokuapp.com/products/${ productId }`)
+			// fetch(`https://herokuapp.com/products/${ productId }`)
 			fetch(`http://localhost:8000/products/${ productId }`)
 			.then(res => res.json())
 			.then(data => {
@@ -34,7 +34,7 @@ export default function EditProduct({product, fetchData}){
 
 		const editProduct = (e, productId) => {
 			e.preventDefault();
-			// fetch(`https://passion-inside.herokuapp.com/products/${productId}`, {
+			// fetch(`https://herokuapp.com/products/${productId}`, {
 			fetch(`http://localhost:8000/products/${productId}`, {
 				method: 'PUT',
 				headers: {

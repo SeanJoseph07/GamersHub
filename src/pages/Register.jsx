@@ -105,7 +105,7 @@
 
 		function registerUser(e) {
 			e.preventDefault();
-			// fetch('https://passion-inside.herokuapp.com/users/register', {
+			// fetch('https://herokuapp.com/users/register', {
 			fetch('http://localhost:8000/users/register', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
@@ -118,7 +118,6 @@
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data)
 				if(data.accessToken === undefined) {
 					localStorage.setItem('accessToken', data.accessToken);
 					setUser({

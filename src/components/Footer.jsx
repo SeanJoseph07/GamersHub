@@ -12,18 +12,21 @@
 	import {mobile} from '../responsive'
 
 //styled
+	const Container = styled.div`
+		display: flex;
+		margin-top: 50px;
+		${mobile({
+			flexDirection: "column"
+		})}
+	`
+
 	const Left = styled.div`
 		flex: 1;
 		display: flex;
 		flex-direction: column;
 		padding: 20px;
 	`
-	const Container = styled.div`
-		display: flex;
-		${mobile({
-			flexDirection: "column"
-		})}
-	`
+
 	const Logo = styled.h1`
 		.
 	`

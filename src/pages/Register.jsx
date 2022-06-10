@@ -145,7 +145,7 @@
 		}
 
 		return (
-			<Container>
+			<Container className="mb-5">
 				<Wrapper>
 					<Title>CREATE AN ACCOUNT</Title>
 					<Form onSubmit={e => registerUser(e)}>
@@ -198,7 +198,7 @@
 						<Button type="submit" disabled>CREATE</Button>
 						}
 					</Form>
-					<Links as={Link} to="/login">Sign into your account</Links>
+					<Links  as={Link} to="/login">Sign into your account</Links>
 				</Wrapper>
 			</Container>
 		)

@@ -67,6 +67,8 @@
 	const Links = styled.a`
 		margin: 4px 0px;
 		font-size: 12;
+		text-decoration: none;
+		color: black;
 		cursor: pointer;
 
 		&:hover{

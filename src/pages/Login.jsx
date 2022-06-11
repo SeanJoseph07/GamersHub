@@ -99,8 +99,8 @@
 		function authentication(e) {
 			e.preventDefault();
 
-			// fetch('https://herokuapp.com/users/login', {
-			fetch('http://localhost:8000/users/login', {
+			fetch('https://skygamershub.herokuapp.com/users/login', {
+			// fetch('http://localhost:8000/users/login', {
 				method: 'POST', 
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({

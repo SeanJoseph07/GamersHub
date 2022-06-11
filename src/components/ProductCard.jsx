@@ -10,6 +10,8 @@ export default function ProductCard({productProp}) {
 
 	const { user } = useContext(UserContext);
 
+
+
 	return(
 	<Card className="my-4" >
 		<Card.Body>
@@ -19,7 +21,7 @@ export default function ProductCard({productProp}) {
 			<Card.Text> { description } </Card.Text>
 
 			<Card.Subtitle>Price:</Card.Subtitle>
-			<Card.Text>Php  { price } </Card.Text>
+			<Card.Text>${ price } </Card.Text>
 
 			{(user.accessToken !== null) ? 
 			<Button variant="primary" as={ Link } to={`/products/${_id}`}>Details</Button>

@@ -17,8 +17,8 @@ export default function AddProduct({fetchData}) {
 	const addProduct = (e) => {
 		e.preventDefault();
 
-		// fetch('https://herokuapp.com/products/create', {
-		fetch('http://localhost:8000/products/create', {
+		fetch('https://skygamershub.herokuapp.com/products/create', {
+		// fetch('http://localhost:8000/products/create', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 export default function ArchiveProduc({product, isActive, fetchData}) {
 
 	const archiveToggle = (productId) => {
-		// fetch(`https://herokuapp.com/products/${productId}/archive`, {
-		fetch(`http://localhost:8000/products/${productId}/archive`, {
+		fetch(`https://skygamershub.herokuapp.com/products/${productId}/archive`, {
+		// fetch(`http://localhost:8000/products/${productId}/archive`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,8 +32,8 @@ export default function ArchiveProduc({product, isActive, fetchData}) {
 
 	//for activating the course
 	const activateToggle = (productId) => {
-		// fetch(`https://herokuapp.com/products/${productId}/activate`, {
-		fetch(`http://localhost:8000/products/${productId}/activate`, {
+		fetch(`https://skygamershub.herokuapp.com/products/${productId}/activate`, {
+		// fetch(`http://localhost:8000/products/${productId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`

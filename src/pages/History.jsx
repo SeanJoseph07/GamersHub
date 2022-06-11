@@ -5,13 +5,13 @@ import UserContext from '../UserContext';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-export default function ProductPage() {
+export default function HistoryPage() {
 
 	const [ allProducts, setAllProducts ] = useState([])
 
 	const fetchData = () => {
-		fetch('https://skygamershub.herokuapp.com/products/all')
-		// fetch('http://localhost:8000/products/all')
+		// fetch('https://herokuapp.com/')
+		fetch('http://localhost:8000/')
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)

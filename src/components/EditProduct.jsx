@@ -12,8 +12,8 @@ export default function EditProduct({product, fetchData}){
 		const [price, setPrice] = useState(0);
 
 		const openEdit = (productId) => {
-			// fetch(`https://herokuapp.com/products/${ productId }`)
-			fetch(`http://localhost:8000/products/${ productId }`)
+			fetch(`https://skygamershub.herokuapp.com/products/${ productId }`)
+			// fetch(`http://localhost:8000/products/${ productId }`)
 			.then(res => res.json())
 			.then(data => {
 				console.log(data)
@@ -34,8 +34,8 @@ export default function EditProduct({product, fetchData}){
 
 		const editProduct = (e, productId) => {
 			e.preventDefault();
-			// fetch(`https://herokuapp.com/products/${productId}`, {
-			fetch(`http://localhost:8000/products/${productId}`, {
+			fetch(`https://skygamershub.herokuapp.com/products/${productId}`, {
+			// fetch(`http://localhost:8000/products/${productId}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json',

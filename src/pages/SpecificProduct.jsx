@@ -12,9 +12,10 @@
 		const [ name, setName ] = useState('');
 		const [ description, setDescription ] = useState('');
 		const [ price, setPrice ] = useState(0);
+		const [ qty, setQty ] = useState(1);
 		useEffect(() => {
-			// fetch(`https://herokuapp.com/products/${ productId }`)
-			fetch(`http://localhost:8000/carts/products/${ productId }`)
+			fetch(`https://skygamershub.herokuapp.com/products/${ productId }`)
+			// fetch(`http://localhost:8000/carts/products/${ productId }`)
 			.then(res => res.json())
 			.then(data => {
 				setName(data.name)
@@ -33,10 +34,19 @@
 		}, [])
 		const { user } = useContext(UserContext);
 
+		const add = () => {
+			setQty(prevCount => prevCount + 1)
+		}
+		const minus = () => {
+			if (qty > 1) {
+			setQty(prevCount => prevCount - 1)
+			}
+		}
+
 		//checkout function
 		const checkout = (productId) => {
-			// fetch('https://herokuapp.com/users/checkout', {
-			fetch('http://localhost:8000/users/checkout', {
+			fetch('https://skygamershub.herokuapp.com/users/checkout', {
+			// fetch('http://localhost:8000/users/checkout', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -69,12 +79,17 @@
 				<h1>{name}</h1>
 				<Card>
 					<Card.Header>
-						<h4>{ name }</h4>
+						<h4>Name: { name }</h4>
 					</Card.Header>
 
 					<Card.Body>
-						<Card.Text>{ description }</Card.Text>
-						<h6>Price: Php { price }</h6>
+						<Card.Text>Description: { description }</Card.Text>
+						<h6>Price: ${ price }</h6>
+						<span>
+							<Button variant="secondary" type="button" style={{ width: "15px", borderRadius: "50%", border: "2px-solid-black" }} onClick={minus}>-</Button>
+							<span>Qty: {qty}</span>
+							<Button variant="secondary" type="button" style={{ width: "15px", borderRadius: "50%", border: "2px-solid-black" }} onClick={add}>+</Button>
+						</span>
 					</Card.Body>
 					<Card.Footer>
 					{user.accessToken !== null ?

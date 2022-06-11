@@ -12,6 +12,7 @@
   import Footer from './components/Footer';
   import { Container } from 'react-bootstrap';
   import { UserProvider } from './UserContext';
+  import History from './pages/History'
   import Cart from './pages/Cart'
   import Checkout from './pages/Checkout'
   import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -41,6 +42,7 @@
               <Route path="/logout" element={ <Logout /> } />
               <Route path="/products/:productId" element={ <SpecificProduct /> } />
               <Route path="*" element={ <NotFound /> } />
+              <Route path="/history" element={ <History /> } />
               <Route path="/cart" element={ <Cart /> } />
               <Route path="/checkout" element={ <Checkout /> } />
             </Routes>

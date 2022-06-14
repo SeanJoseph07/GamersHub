@@ -1,5 +1,5 @@
-import UserView from '../components/UserView';
-import AdminView from '../components/AdminView';
+import UserOrders from '../components/UserOrders';
+import AdminOrders from '../components/AdminOrders';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import { Button } from 'react-bootstrap'
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export default function HistoryPage() {
 
-	const [ allProducts, setAllProducts ] = useState([])
+	const [ allOrders, setAllOrders ] = useState([])
 
 	const fetchData = () => {
 		// fetch('https://herokuapp.com/')
@@ -15,7 +15,7 @@ export default function HistoryPage() {
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
-			setAllProducts(data)
+			setAllOrders(data)
 		})
 	}
 
@@ -27,11 +27,11 @@ export default function HistoryPage() {
 
 	return(
 		<>
-			<h1>Products</h1>
+			<h1>Orders</h1>
 			{(user.isAdmin === true)?
-			<AdminView productsData={allProducts} fetchData={fetchData}/>
+			<AdminOrders ordersData={allOrders} fetchData={fetchData}/>
 			:
-			<UserView productsData={allProducts}/>
+			<UserOrders ordersData={allOrders}/>
 			}
 		</>
 	)

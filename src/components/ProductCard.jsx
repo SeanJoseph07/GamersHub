@@ -27,8 +27,8 @@ export default function ProductCard({productProp}) {
 			<Button variant="primary" as={ Link } to={`/products/${_id}`}>Details</Button>
 			:
 			<>
-				<Button variant="primary" disabled>Details</Button>
-				<Button variant='secondary' as={Link} to="/login">Login to make a purchase</Button>
+				<Button className="m-3" variant="primary" disabled>Details</Button>
+				<Button className="m-3" variant='secondary' as={Link} to="/login">Login to make a purchase</Button>
 			</>
 			}
 		</Card.Body>

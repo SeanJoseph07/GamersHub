@@ -1,7 +1,9 @@
+//Imports
 import { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
+//Function
 export default function AddProduct({fetchData}) {
 
 	const [ name, setName ] = useState('');

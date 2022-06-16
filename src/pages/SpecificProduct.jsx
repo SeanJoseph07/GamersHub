@@ -7,7 +7,6 @@
 
 //Function
 	export default function SpecificProduct(){
-		console.log(`*****************SP*************`)
 		const { productId } = useParams();
 		const [ name, setName ] = useState('');
 		const [ description, setDescription ] = useState('');
@@ -21,15 +20,6 @@
 				setName(data.name)
 				setDescription(data.description)
 				setPrice(data.price)
-				console.log(`inside then data`)
-				console.log(`name`, name)
-				console.log(`description`, description)
-				console.log(`price`, price)
-				console.log(`setName`, setName)
-				console.log(`setDescription`, setDescription)
-				console.log(`setPrice`, setPrice)
-				console.log(`data`, data)
-				console.log(`***********************`)
 			})
 		}, [])
 		const { user } = useContext(UserContext);
@@ -43,10 +33,10 @@
 			}
 		}
 
-		//checkout function
-		const checkout = (productId) => {
-			fetch('https://skygamershub.herokuapp.com/users/checkout', {
-			// fetch('http://localhost:8000/users/checkout', {
+		//addToCart function
+		const addToCart = (productId) => {
+			fetch('https://skygamershub.herokuapp.com/users/addToCart', {
+			// fetch('http://localhost:8000/users/addToCart', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
@@ -92,8 +82,9 @@
 						</span>
 					</Card.Body>
 					<Card.Footer>
+						<Button variant='primary' as={Link} to="/products">Back</Button>
 					{user.accessToken !== null ?
-						<Button variant='danger' onClick={() => checkout(productId)}>Buy</Button>
+						<Button variant='danger' onClick={() => addToCart(productId)}>addToCart</Button>
 						:
 						<Button variant='danger' as={Link} to="/login">Login to make a purchase</Button>
 					}

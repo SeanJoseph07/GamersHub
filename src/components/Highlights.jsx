@@ -10,7 +10,7 @@
 	import UserContext from '../UserContext';
 
 
-//styled
+//Styled
 	const Container = styled.div`
 		${mobile({
 			height: "50px"
@@ -58,7 +58,7 @@
 	`;
 
 
-//function
+//Function
 	const Highlights = () => {
 
 		const { user } = useContext(UserContext);

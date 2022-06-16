@@ -1,7 +1,9 @@
+//Imports
 import { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import EditOrder from './EditOrder';
 
+//Function
 export default function AdminView(props) {
 
 	const { ordersData, fetchData } = props;

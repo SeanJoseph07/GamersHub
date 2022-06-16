@@ -1,12 +1,14 @@
-//dependencies and imports
-	import React from 'react'
+//Imports
+	import { React, useContext, useEffect, useState } from 'react'
 	import styled from 'styled-components'
 	import Footer from '../components/Footer'
 	import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
 	import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 	import {mobile} from '../responsive'
+	import UserContext from '../UserContext';
+	import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-//styled
+//Styled
 	const Container = styled.div`
 		
 	`
@@ -179,9 +181,19 @@
 	  font-weight: 600;
 	`;
  
-//function
+//Function
 const Cart = () => {
+
+	const { user } = useContext(UserContext);
+
 	return (
+
+		(user.accessToken !== null) ? 
+
+		<Navigate to="/home" />
+
+		:
+
 		<Container>
 			<Wrapper>
 				<Title>YOUR BAG</Title>

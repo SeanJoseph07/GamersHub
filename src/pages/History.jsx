@@ -1,10 +1,12 @@
+//Imports
 import UserOrders from '../components/UserOrders';
 import AdminOrders from '../components/AdminOrders';
 import { useContext, useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import { Button } from 'react-bootstrap'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
+//Function
 export default function HistoryPage() {
 
 	const [ allOrders, setAllOrders ] = useState([])
@@ -26,6 +28,13 @@ export default function HistoryPage() {
 	const { user } = useContext(UserContext);
 
 	return(
+
+		(user.accessToken !== null) ? 
+
+		<Navigate to="/home" />
+
+		:
+
 		<>
 			<h1>Orders</h1>
 			{(user.isAdmin === true)?

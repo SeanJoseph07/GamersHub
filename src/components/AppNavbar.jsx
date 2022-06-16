@@ -1,4 +1,4 @@
-//dependencies and imports
+//Imports
 	import { React, useState, useContext } from 'react'
 	import styled from 'styled-components'
 	import SearchIcon from '@mui/icons-material/Search';
@@ -9,7 +9,7 @@
 	import UserContext from '../UserContext';
 	import { Navbar, Nav } from 'react-bootstrap';
 
-//styled
+//Styled
 	const Container = styled.div`
 		height: 60px;
 		background-color: teal;
@@ -89,7 +89,7 @@
 	`
 
 
-//function
+//Function
 	const AppNavbar = () => {
 
 		const { user } = useContext(UserContext);
@@ -122,8 +122,21 @@
 						<MenuItem as={Link} to="/login">Sign in</MenuItem>
 						</>
 						}
+						
+						{(user.accessToken !== null && user.isAdmin === true) ?
+						
+						<>
+						</>
+
+						:
+
+						<>
+						<MenuItem as={Link} to="/history">History</MenuItem>
 						<MenuItem as={Link} to="/cart">Cart</MenuItem>
 						<ShoppingCartTwoToneIcon/>
+						</>
+						}
+
 					</Right>
 				</Wrapper>
 			</Container>

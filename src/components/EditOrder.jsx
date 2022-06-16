@@ -1,7 +1,9 @@
+//Imports
 import { useState, useEffect } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
+//Function
 export default function EditOrder({order, fetchData}){
 	//{}
 		const [ showEdit, setShowEdit ] = useState(false)

@@ -1,9 +1,11 @@
+//Imports
 import { useState, useEffect } from 'react';
 import { Table } from 'react-bootstrap';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
 import ArchiveProduct from './ArchiveProduct';
 
+//Function
 export default function AdminView(props) {
 
 	const { productsData, fetchData } = props;

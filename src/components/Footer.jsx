@@ -1,4 +1,4 @@
-//dependencies and imports
+//Imports
 	import React from 'react'
 	import styled from 'styled-components'
 	import FacebookIcon from '@mui/icons-material/Facebook';
@@ -11,7 +11,7 @@
 	import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 	import {mobile} from '../responsive'
 
-//styled
+//Styled
 	const Container = styled.div`
 		display: flex;
 		margin-top: 50px;
@@ -94,7 +94,7 @@
 		
 	`
 
-//function
+//Function
 	const Footer = () => {
 		return (
 			<Container>

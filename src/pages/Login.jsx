@@ -1,4 +1,4 @@
-//dependencies and imports
+//Imports
 	import {React, useState, useEffect, useContext} from 'react'
 	import styled from 'styled-components'
 	import {mobile} from '../responsive'
@@ -6,7 +6,7 @@
 	import UserContext from '../UserContext';
 	import {Navigate, useNavigate, Link} from 'react-router-dom';
 
-//styled
+//Styled
 	const Container = styled.div`
 		width: 100vw;
 		height: 60vh;
@@ -76,7 +76,7 @@
 		}
 	`
 
-//function
+//Function
 	export default function Login () {
 
 		const navigate = useNavigate();

@@ -1,6 +1,8 @@
+//Imports
 import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
+//Function
 export default function ArchiveProduc({product, isActive, fetchData}) {
 
 	const archiveToggle = (productId) => {

@@ -1,3 +1,4 @@
+//Imports
 import UserView from '../components/UserView';
 import AdminView from '../components/AdminView';
 import { useContext, useEffect, useState } from 'react';
@@ -5,6 +6,7 @@ import UserContext from '../UserContext';
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
+//Function
 export default function ProductPage() {
 
 	const [ allProducts, setAllProducts ] = useState([])

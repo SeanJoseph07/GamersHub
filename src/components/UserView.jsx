@@ -1,9 +1,10 @@
+//Imports
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard'
 import { Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom';
 
-
+//Function
 export default function	UserView({productsData}) {
 
 	const[products, setProducts] = useState([])

@@ -1,8 +1,8 @@
-//dependencies and imports
+//Imports
 	import React from 'react'
 	import styled from 'styled-components'
 
-//styled
+//Styled
 	const Container = styled.div`
 		height: 30px;
 		background-color: gold;
@@ -14,7 +14,7 @@
 		font-weight: 500;
 	`
 
-//function
+//Function
 	const Announcement = () => {
 		return (
 			<Container>

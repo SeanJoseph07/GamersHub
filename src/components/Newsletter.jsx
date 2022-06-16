@@ -1,10 +1,10 @@
-//dependencies and imports
+//Imports
 	import React from 'react'
 	import styled from 'styled-components'
 	import SendSharpIcon from '@mui/icons-material/SendSharp';
 	import {mobile} from '../responsive'
 
-//styled
+//Styled
 	const Container = styled.div`
 		height: 35vh;
 		background-color: #fcf5f5;
@@ -54,7 +54,7 @@
 		color: white;
 	`
 
-//function
+//Function
 	const Newsletter = () => {
 		return (
 			<Container>

@@ -1,9 +1,11 @@
+//Imports
 import { useState, useEffect, useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import { Navigate, useNavigate, Link } from 'react-router-dom';
 import UserContext from '../UserContext';
 
+//Function
 export default function OrderCard({orderProp}) {
 
 	const { _id, name, description, price } = orderProp;

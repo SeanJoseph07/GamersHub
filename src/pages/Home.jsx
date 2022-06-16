@@ -3,6 +3,7 @@
 	import Highlights from '../components/Highlights';
 	import Newsletter from '../components/Newsletter';
 
+//Function
 export default function Home() {
 	return(
 		<>

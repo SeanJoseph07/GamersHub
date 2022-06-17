@@ -67,8 +67,8 @@
 
 		//order function
 		const order = (productId) => {
-			// fetch('https://skygamershub.herokuapp.com/orders/order', {
-			fetch('http://localhost:8000/orders/order', {
+			fetch('https://skygamershub.herokuapp.com/orders/order', {
+			// fetch('http://localhost:8000/orders/order', {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',

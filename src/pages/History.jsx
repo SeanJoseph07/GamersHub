@@ -11,9 +11,9 @@ export default function HistoryPage() {
 
 	const [ allOrders, setAllOrders ] = useState([])
 
-	const fetchData = () => {
-		// fetch('https://herokuapp.com/')
-		fetch('http://localhost:8000/')
+	const adminData = () => {
+		// fetch('https://herokuapp.com/orders/all')
+		fetch('http://localhost:8000/orders/all')
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
@@ -22,7 +22,23 @@ export default function HistoryPage() {
 	}
 
 	useEffect(() => {
-		fetchData()
+		adminData()
+	}, [])
+
+	const [ userOrders, setUserOrders ] = useState([])
+
+	const userData = () => {
+		// fetch('https://herokuapp.com/orders/userOrder')
+		fetch('http://localhost:8000/orders/userOrder')
+		.then(res => res.json())
+		.then(data => {
+			console.log(data)
+			setUserOrders(data)
+		})
+	}
+
+	useEffect(() => {
+		userData()
 	}, [])
 
 	const { user } = useContext(UserContext);
@@ -31,16 +47,16 @@ export default function HistoryPage() {
 
 		(user.accessToken !== null) ? 
 
-		<Navigate to="/home" />
+		<Navigate to="/" />
 
 		:
 
 		<>
 			<h1>Orders</h1>
 			{(user.isAdmin === true)?
-			<AdminOrders ordersData={allOrders} fetchData={fetchData}/>
+			<AdminOrders ordersData={allOrders} fetchData={adminData}/>
 			:
-			<UserOrders ordersData={allOrders}/>
+			<UserOrders ordersData={userOrders} fetchData={userData}/>
 			}
 		</>
 	)

@@ -11,14 +11,9 @@ export default function	UserView({ordersData}) {
 
 	useEffect(() => {
 		const ordersArr = ordersData.map(order => {
-			//only render the active orders
-			if(order.isActive === true) {
 				return(
 					<OrderCard key={order._id} orderProp={order}/>
 					)
-			} else {
-				return null
-			}
 		})
 		setOrders(ordersArr)
 	}, [ordersData])

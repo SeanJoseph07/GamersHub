@@ -125,8 +125,7 @@
 						
 						{(user.accessToken !== null && user.isAdmin === true) ?
 						
-						<>
-						</>
+						<MenuItem as={Link} to="/history">History</MenuItem>
 
 						:
 

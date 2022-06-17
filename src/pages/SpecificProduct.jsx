@@ -64,6 +64,39 @@
 				}
 			})
 		}
+
+		//order function
+		const order = (productId) => {
+			// fetch('https://skygamershub.herokuapp.com/orders/order', {
+			fetch('http://localhost:8000/orders/order', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+				},
+				body: JSON.stringify({
+					productId: productId
+				})
+			})
+			.then(res => res.json())
+			.then(data => {
+				console.log(data)
+				if(data){
+					Swal.fire({
+						title: 'Success!',
+						icon: 'success',
+						text: `You have successfully ordered ${name}.`
+					})
+				} else {
+					Swal.fire({
+						title: 'Error',
+						icon: 'error',
+						text: 'Something went wrong. Please try again!'
+					})
+				}
+			})
+		}
+
 		return(
 			<Container>
 				<h1>{name}</h1>
@@ -84,7 +117,10 @@
 					<Card.Footer>
 						<Button variant='primary' as={Link} to="/products">Back</Button>
 					{user.accessToken !== null ?
-						<Button variant='danger' onClick={() => addToCart(productId)}>addToCart</Button>
+						<>
+							<Button variant='danger' onClick={() => addToCart(productId)}>addToCart</Button>
+							<Button variant='danger' onClick={() => order(productId)}>Purchase</Button>
+						</>
 						:
 						<Button variant='danger' as={Link} to="/login">Login to make a purchase</Button>
 					}

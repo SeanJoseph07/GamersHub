@@ -6,7 +6,7 @@ import EditOrder from './EditOrder';
 //Function
 export default function AdminView(props) {
 
-	const { ordersData, fetchData } = props;
+	const { ordersData, adminData } = props;
 
 	const [ orders, setOrders ] = useState([])
 
@@ -19,11 +19,8 @@ export default function AdminView(props) {
 					<td>{order.name}</td>
 					<td>{order.description}</td>
 					<td>{order.price}</td>
-					<td className={order.isActive ? "text-success" : "text-danger"}>
-						{order.isActive ? "Available" : "Unavailable"}
-					</td>
 					<td>
-						<EditOrder order={order._id} fetchData={fetchData}/>
+						<EditOrder order={order._id} fetchData={adminData}/>
 					</td>
 				</tr>
 				)
@@ -45,8 +42,6 @@ export default function AdminView(props) {
 						<th>NAME</th>
 						<th>DESCRIPTION</th>
 						<th>PRICE</th>
-						<th>AVAILABILITY</th>
-						<th ColSpan="2">ACTIONS</th>
 					</tr>
 				</thead>
 

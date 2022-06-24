@@ -99,7 +99,7 @@
 
 		return(
 			<Container>
-				<h1>{name}</h1>
+				<h1>Product Details</h1>
 				<Card>
 					<Card.Header>
 						<h4>Name: { name }</h4>

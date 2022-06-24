@@ -17,9 +17,6 @@ export default function ProductCard({productProp}) {
 		<Card.Body>
 			<Card.Title> { name } </Card.Title>
 
-			<Card.Subtitle>Description:</Card.Subtitle>
-			<Card.Text> { description } </Card.Text>
-
 			<Card.Subtitle>Price:</Card.Subtitle>
 			<Card.Text>${ price } </Card.Text>
 

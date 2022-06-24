@@ -7,7 +7,7 @@ import ArchiveProduct from './ArchiveProduct';
 
 //Function
 export default function AdminView(props) {
-
+	console.log(`***AdminView1***`);
 	const { productsData, fetchData } = props;
 
 	const [ products, setProducts ] = useState([])
@@ -36,7 +36,7 @@ export default function AdminView(props) {
 		setProducts(productsArr)
 	}, [productsData])
 
-
+	console.log(`***AdminView2***`);
 	return(
 		<>
 			<div className="text-center my-4">
@@ -62,6 +62,6 @@ export default function AdminView(props) {
 			</Table>
 
 		</>
-
 		)
+		console.log(`***AdminView3***`);
 }

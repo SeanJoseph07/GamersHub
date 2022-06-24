@@ -8,9 +8,11 @@
 	import { Link } from 'react-router-dom';
 	import UserContext from '../UserContext';
 	import { Navbar, Nav } from 'react-bootstrap';
+	import Container from 'react-bootstrap/Container';
+	import NavDropdown from 'react-bootstrap/NavDropdown';
 
 //Styled
-	const Container = styled.div`
+	/*const Container = styled.div`
 		height: 60px;
 		background-color: teal;
 		${mobile({
@@ -86,11 +88,11 @@
 		${mobile({
 			fontSize: "12px", marginLeft: "10px"
 		})}
-	`
+	`*/
 
 
 //Function
-	const AppNavbar = () => {
+	/*const AppNavbar = () => {
 
 		const { user } = useContext(UserContext);
 
@@ -123,23 +125,85 @@
 						</>
 						}
 						
-						{(user.accessToken !== null && user.isAdmin === true) ?
-						
-						<MenuItem as={Link} to="/history">History</MenuItem>
-
-						:
+						{(user.accessToken !== null) ? 
 
 						<>
-						<MenuItem as={Link} to="/history">History</MenuItem>
-						<MenuItem as={Link} to="/cart">Cart</MenuItem>
-						<ShoppingCartTwoToneIcon/>
+							{(user.isAdmin === true) ?
+							
+							<>
+								<MenuItem as={Link} to="/history">History</MenuItem>
+								<MenuItem as={Link} to="/checkout">Checkout</MenuItem>
+							</>
+
+							:
+
+							<>
+								<MenuItem as={Link} to="/history">History</MenuItem>
+								<MenuItem as={Link} to="/cart">Cart</MenuItem>
+								<ShoppingCartTwoToneIcon/>
+							</>
+							}
+						</>
+						:
+						<>
 						</>
 						}
 
 					</Right>
 				</Wrapper>
 			</Container>
+
 		)
 	}
+	export default AppNavbar*/
 
-	export default AppNavbar
+	function AppNavbar() {
+
+		const { user } = useContext(UserContext);
+
+	  return (
+	    <Navbar  bg="dark" variant="dark" expand="lg">
+	      <Container>
+	        <Navbar.Brand href="/">GAMER'S HUB</Navbar.Brand>
+	        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+	        <Navbar.Collapse id="basic-navbar-nav">
+	          <Nav className="me-auto">
+	            <Nav.Link href="/">Home</Nav.Link>
+	            <Nav.Link href="/products">Products</Nav.Link>
+	            <NavDropdown title="More" id="basic-nav-dropdown">
+	            	{(user.accessToken !== null) ?
+	            	<NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+	            	:
+	            	<>
+	            	<NavDropdown.Item href="/register">Register</NavDropdown.Item>
+	            	<NavDropdown.Item href="/login">Sign in</NavDropdown.Item>
+	            	</>
+	            	}
+	            	<NavDropdown.Divider />
+	            	{(user.accessToken !== null) ? 
+		            	<>
+		            		{(user.isAdmin === true) ? 
+		            		<>
+		            			<NavDropdown.Item href="/history">History</NavDropdown.Item>
+		            			<NavDropdown.Item href="/checkout">Checkout</NavDropdown.Item>
+		            		</>
+		            		:
+		            		<>
+		            			<NavDropdown.Item href="/history">History</NavDropdown.Item>
+		            			<NavDropdown.Item href="/cart">Cart</NavDropdown.Item>
+		            		</>
+		            		}
+		            	</>
+	            	:
+	            	<>
+	            	</>
+	            	}
+	            </NavDropdown>
+	          </Nav>
+	        </Navbar.Collapse>
+	      </Container>
+	    </Navbar>
+	  );
+	}
+
+	export default AppNavbar;

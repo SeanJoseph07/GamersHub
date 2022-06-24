@@ -154,7 +154,7 @@
 
 			(user.accessToken !== null) ? 
 
-			<Navigate to="/home" />
+			<Navigate to="/" />
 
 			:
 

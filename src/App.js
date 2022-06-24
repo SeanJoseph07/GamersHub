@@ -1,6 +1,7 @@
 //Imports
   import { useState } from 'react';
   import './App.css';
+  import 'bootstrap/dist/css/bootstrap.min.css';
   import AppNavbar from './components/AppNavbar';
   import Home from './pages/Home';
   import ProductPage from './pages/ProductPage';
@@ -41,10 +42,10 @@
               <Route path="/login" element={ <Login /> } />
               <Route path="/logout" element={ <Logout /> } />
               <Route path="/products/:productId" element={ <SpecificProduct /> } />
-              <Route path="*" element={ <NotFound /> } />
               <Route path="/history" element={ <History /> } />
-              <Route path="/cart" element={ <Cart /> } />
               <Route path="/checkout" element={ <Checkout /> } />
+              <Route path="/cart" element={ <Cart /> } />
+              <Route path="*" element={ <NotFound /> } />
             </Routes>
           </Container>
           <Footer/>

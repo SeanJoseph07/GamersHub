@@ -7,7 +7,7 @@
 
 //Function
 	export default function SpecificProduct(){
-		const { productId } = useParams();
+		const { productId, productName } = useParams();
 		const [ name, setName ] = useState('');
 		const [ description, setDescription ] = useState('');
 		const [ price, setPrice ] = useState(0);
@@ -80,7 +80,7 @@
 			})
 			.then(res => res.json())
 			.then(data => {
-				console.log(data)
+				console.log(`FE DATA`, data)
 				if(data){
 					Swal.fire({
 						title: 'Success!',

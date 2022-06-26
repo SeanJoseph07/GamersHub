@@ -19,7 +19,10 @@ export default function ProductPage() {
 			fetch('http://localhost:8000/orders/all'
 			, {
 				method: 'GET', 
-				headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.accessToken}`}
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+				}
 			})
 			.then(res => res.json())
 			.then(data => {
@@ -27,10 +30,13 @@ export default function ProductPage() {
 				setAllOrders(data)
 			})
 		} else if (user.isAdmin !== true) {
-			fetch('http://localhost:8000/orders/userOrder'
+			fetch('http://localhost:8000/orders/user'
 			, {
 				method: 'GET', 
-				headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.accessToken}`}
+				headers: {
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+				}
 			})
 			.then(res => res.json())
 			.then(data => {
@@ -52,7 +58,7 @@ export default function ProductPage() {
 				{(user.isAdmin === true)?
 				<AdminOrders ordersData={allOrders} fetchData={fetchData}/>
 				:
-				<UserOrders userOrders={allOrders} fetchData={fetchData}/>
+				<UserOrders ordersData={allOrders} fetchData={fetchData}/>
 				}
 			</>
 		:

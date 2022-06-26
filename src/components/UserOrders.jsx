@@ -34,32 +34,25 @@ import EditOrder from './EditOrder';
 
 //Function
 export default function UserOrders(props) {
-	const { userOrders, fetchData } = props;
+	const { ordersData, fetchData } = props;
 
 	const [ orders, setOrders ] = useState([])
 
 	useEffect(() => {
-		let x = 1;
-		const ordersArr = userOrders.map(order => {
-			return(
+
+		const ordersArr = ordersData.map(order => {
+			return (
 				<tr key={order._id}>
 					<td>{order._id}</td>
-					<td>{order.userId}</td>
-					<td>{order.products}</td>
-					{/*<th>ORDER ID</th>
-					<th>UserId</th>
-					<th>Products</th>*/}
-				</tr>/*,
-				console.log(`Order`),
-				console.log(order),
-				console.log(order._id),
-				console.log(order.userId),
-				console.log(order.products),
-				x++*/
-				)
+					<td>{order.userEmail}</td>
+					<td>{order.productId}</td>
+					<td>{order.status}</td>
+					<td>{order.orderedOn}</td>
+				</tr>
+			)
 		})
 		setOrders(ordersArr)
-	}, [userOrders, fetchData])
+	}, [ordersData, fetchData])
 
 	return(
 		<>
@@ -70,9 +63,11 @@ export default function UserOrders(props) {
 			<Table striped bordered hover responsive>
 				<thead className="bg-dark text-white">
 					<tr>
-						<th>ORDER ID</th>
-						<th>UserId</th>
-						<th>Products</th>
+						<th>Order ID</th>
+						<th>Email</th>
+						<th>Product</th>
+						<th>Status</th>
+						<th>Ordered On</th>
 					</tr>
 				</thead>
 

@@ -9,51 +9,21 @@ export default function AdminOrders(props) {
 
 	const [ orders, setOrders ] = useState([])
 
-	const [ prod, setProd ] = useState([])
-
 	useEffect(() => {
 
-		const {ordersArr} = ordersData.map(order => {
-			console.log('***ORDERSDATA.MAP***')
+		const ordersArr = ordersData.map(order => {
 			return (
-				<tr key={order.orders._id}>
-					<td>{order.email}</td>
+				<tr key={order._id}>
 					<td>{order._id}</td>
-					<td>{order.orders}</td>
-				</tr>,
-				console.log('order.email', order.email),
-				console.log('order.orders._id', order.orders._id),
-				console.log('order.orders.productId', order.orders.productId)
-			)
-		})
-		setOrders(ordersArr)
-		console.log('ordersArr', ordersArr);
-	}, [ordersData, fetchData])
-
-	console.log('***AFTER-USE_EFFECT***')
-
-	/*useEffect(() => {
-
-		const {props: {ordersData: {_id, email, orders: {productId, orderedOn, status, _id: orderId} } } } = props.map(order => {
-			return (
-				<tr key={orderId}>
-					<td>{email}</td>
-					<td>{email}</td>
-					<td>{email}</td>
-					<td>{email}</td>
+					<td>{order.userEmail}</td>
+					<td>{order.productId}</td>
+					<td>{order.status}</td>
+					<td>{order.orderedOn}</td>
 				</tr>
 			)
 		})
-		setOrders(orderId, email, productId, orderedOn, status)
-		console.log('orders', orders);
-	}, [ordersData, fetchData])*/
-
-	/*console.log('props', props);
-	console.log('orders', orders)*/
-
-	console.log('ordersData', ordersData);
-
-
+		setOrders(ordersArr)
+	}, [ordersData, fetchData])
 
 	return(
 		<>
@@ -64,9 +34,11 @@ export default function AdminOrders(props) {
 			<Table striped bordered hover responsive>
 				<thead className="bg-dark text-white">
 					<tr>
-						<th>Email</th>
 						<th>Order ID</th>
-						<th>Products</th>
+						<th>Email</th>
+						<th>Product</th>
+						<th>Status</th>
+						<th>Ordered On</th>
 					</tr>
 				</thead>
 
